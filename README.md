@@ -7,6 +7,8 @@ COVID19TID is a web application for traffic inflation data for COVID-19 dispersi
   * Javascript
   * PHP
   * SQL
+  * Leaflet.js
+  * Chart.js
  
  ## Functionality
 
