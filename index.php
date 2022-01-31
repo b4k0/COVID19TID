@@ -1,3 +1,4 @@
+<!-- HTML Code -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,6 +27,9 @@
 <div class="form-container sign-in-container">
 	<form action="signin.php" method="POST">
 		<h1>Sign In</h1>
+		<?php if (isset($_GET['error'])){ ?>
+			<p class="error"><?php echo $_GET['error']; ?></p>
+		<?php } ?>
 		<br>
 		<br>
 		<br>
@@ -59,7 +63,7 @@
 	</div>
 </div>
 </div>
-
+<!-- Javascript Code -->
 <script type="text/javascript">
 	const signUpButton = document.getElementById('signUp');
 	const signInButton = document.getElementById('signIn');
@@ -72,7 +76,10 @@
 		container.classList.remove("right-panel-active");
 	});
 </script>
+<br>
 
+<p class="text_center">2022 All rights reserved, COVID19 TID Application <a href="index.php"></a></p>
+ 
 </body>
 </html>
 
