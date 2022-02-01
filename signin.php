@@ -8,21 +8,22 @@ if($conn->connect_error){
 
 $username = $_POST["username"];
 $password = $_POST["password"];
+$number = preg_match('@[0-9]@', $password);
+$uppercase = preg_match('@[A-Z]@', $password);
+$lowercase = preg_match('@[a-z]@', $password);
+$specialChars = preg_match('@[^\w]@', $password);
 
 if(isset($username) && isset($password)){
 
 	if(empty($username)){
-		header("Location: index.php?error=Username is required!");
+		header("Location: index.php?blank=Username is required!");
 		exit();
 	}else if (empty($password)){
-		header("Location: index.php?error=Password is required!");
+		header("Location: index.php?blank=Password is required!");
 		exit();
 	}else{
-		echo "Valid input";
-	}
-}else{
 	header("Location: index.php");
-	exit();
+	exit();}
 }
 
 
@@ -39,12 +40,8 @@ if($row > 0){
 	<?php
 }
 else{
-	?>
-	<script>
-		alert('Login failed');
-	</script>
-
-	<?php
+	header("Location: index.php?blank=False Credentials!");
+	exit();
 }
 
 

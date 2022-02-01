@@ -13,13 +13,15 @@
 
 <form action="signup.php" method="POST" >
 	<h1>Create Account</h1>
-	<br>
+	<?php if (isset($_GET['error'])){ ?>
+		<p class="error"><?php echo $_GET['error']; ?></p>
+	<?php } ?>
 	<br>
 	<br>
 	<br>
 	<input type="email" name="email" placeholder="Email">
 	<input type="text" name="username" placeholder="Username">
-	<input type="password" name="password" placeholder="Password">
+	<input type="password" name="password" placeholder="Password"> 
 	<br>
 	<button>SignUp</button>
 </form>
@@ -27,10 +29,9 @@
 <div class="form-container sign-in-container">
 	<form action="signin.php" method="POST">
 		<h1>Sign In</h1>
-		<?php if (isset($_GET['error'])){ ?>
-			<p class="error"><?php echo $_GET['error']; ?></p>
+		<?php if (isset($_GET['blank'])){ ?>
+			<p class="error"><?php echo $_GET['blank']; ?></p>
 		<?php } ?>
-		<br>
 		<br>
 		<br>
 		<br>
