@@ -88,6 +88,7 @@ button {
   transition: all .5s ease;
   font-size: 15px;
 }
+
 a.active,a:hover{
   border-left: 5px solid rgb(12,12,164);;
   color: rgb(12,12,164);
