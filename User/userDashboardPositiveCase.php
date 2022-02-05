@@ -24,27 +24,27 @@ session_start();
         <?php echo $_SESSION["username"]?>
       </header>
       <br>
-      <a href="#" class="active">
+      <a href="userDashboard.php">
         <i class="fas fa-map"></i>
         <span>Live Map</span>
       </a>
-      <a href="#">
+      <a href="userDashboardPOIs.php">
         <i class="fas fa-search"></i>
         <span>Search POIs</span>
       </a>
-      <a href="#">
+      <a href="userDashboardVisit.php">
         <i class="fas fa-flag"></i>
         <span>Insert Visit</span>
       </a>
-      <a href="#">
+      <a href="userDashboardCovid.php">
          <i class="fas fa-virus"></i>
         <span>Covid Inflection</span>
       </a>
-      <a href="#">
+      <a href="userDashboardPositiveCase.php"  class="active">
         <i class="fas fa-allergies"></i>
         <span>Contact positive Case</span>
       </a>
-      <a href="#">
+      <a href="userDashboardPersonalData.php">
         <i class="fas fa-address-book"></i>
         <span>Personal Data</span>
       </a>

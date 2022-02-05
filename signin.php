@@ -45,10 +45,10 @@ if(isset($username) && isset($password)){
 			$_SESSION["password"] = $password;
 			 if(isset($_SESSION["username"])){
 			if ($username=="admin" && $password=="admin"){
-				header("Location: adminDashboard.php");
+				header("Location: Admin/adminDashboard.php");
 				exit();
 			}else{
-				header("Location: userDashboard.php");
+				header("Location: User/userDashboard.php");
 				exit();
 			}
 		}
