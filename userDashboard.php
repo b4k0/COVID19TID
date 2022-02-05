@@ -40,7 +40,7 @@ session_start();
       </a>
       <a href="#">
         <i class="fas fa-allergies"></i>
-        <span>Contact positive Case</span>
+        <span>Contact Positive Case</span>
       </a>
       <a href="#">
         <i class="fas fa-address-book"></i>

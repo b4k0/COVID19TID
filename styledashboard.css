@@ -6,9 +6,9 @@ body{
 	flex-direction: column;
 	font-family: 'Montserrat', sans-serif;
 	height: 80vh;
-    width: 100vh;
-    background: rgb(12,12,164);
-    background: linear-gradient(90deg, rgba(12,12,164,1) 42%, rgba(0,212,255,1) 100%);
+  width: 100vh;
+  background: rgb(12,12,164);
+  background: linear-gradient(90deg, rgba(12,12,164,1) 42%, rgba(0,212,255,1) 100%);
 }
 
 h3{
@@ -41,12 +41,6 @@ button {
 	align-items: left;
 }
 
-@import url('https://fonts.googleapis.com/css?family=Montserrat:600|Open+Sans:600&display=swap');
-*{
-  margin: 0;
-  padding: 0;
-  text-decoration: none;
-}
 .sidebar{
   position: fixed;
   width: 240px;
