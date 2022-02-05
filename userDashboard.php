@@ -22,7 +22,7 @@ session_start();
         <?php echo $_SESSION["username"]?>
       </header>
       <br>
-      <a href="#">
+      <a href="#" class="active">
         <i class="fas fa-map"></i>
         <span>Live Map</span>
       </a>
@@ -40,7 +40,7 @@ session_start();
       </a>
       <a href="#">
         <i class="fas fa-allergies"></i>
-        <span>Contact Positive Case</span>
+        <span>Contact positive Case</span>
       </a>
       <a href="#">
         <i class="fas fa-address-book"></i>
