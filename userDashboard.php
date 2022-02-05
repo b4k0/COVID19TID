@@ -16,7 +16,12 @@ session_start();
 </head>
 <body>
     <div class="sidebar">
-      <header>Welcome, <?php echo $_SESSION["username"]?>!</header>
+      <p>COVID 19 TID</p>
+      <header>
+        <i class="fas fa-user-alt"></i>
+        <?php echo $_SESSION["username"]?>
+      </header>
+      <br>
       <a href="#">
         <i class="fas fa-map"></i>
         <span>Live Map</span>
@@ -45,12 +50,8 @@ session_start();
       <br>
       <br>
       <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <a href="logout.php">
+     
+      <a href="logut.php">
         <i class="fas fa-redo-alt"></i>
         <span>Logout</span>
       </a>

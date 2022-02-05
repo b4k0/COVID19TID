@@ -56,7 +56,16 @@ button {
   transition: all .5s ease;
 }
 .sidebar header{
-  font-size: 18px;
+  font-size: 25px;
+  color: rgb(12,12,164);
+  line-height: 78px;
+  text-align: center;
+  background: #000000;
+  user-select: none;
+  font-family: 'Montserrat', sans-serif;
+}
+.sidebar p{
+  font-size: 25px;
   color: rgb(12,12,164);
   line-height: 90px;
   text-align: center;
@@ -72,7 +81,7 @@ button {
   line-height: 65px;
   padding-left: 30px;
   box-sizing: border-box;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgba(255,255,255,.1);
   border-top: 1px solid rgba(255,255,255,.1);
   border-left: 1px solid transparent;
   font-family: 'Open Sans', sans-serif;
