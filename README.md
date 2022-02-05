@@ -24,4 +24,5 @@ COVID19TID is a web application for traffic inflation data for COVID-19 dispersi
   ![checkpass](https://user-images.githubusercontent.com/51766689/152068124-f3361156-0d1f-4d20-9387-6c756e14582a.PNG)
 
 * User Dashboard with Live Location
-![userdash](https://user-images.githubusercontent.com/51766689/152640598-f5cb246c-7734-4ef7-bf51-ec06afea802d.PNG)
+![userdash](https://user-images.githubusercontent.com/51766689/152643643-f64918f5-6ef4-43d0-b317-4a5d711383ca.PNG)
+
