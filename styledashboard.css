@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+
+body{
+	display: flex;
+	flex-direction: column;
+	font-family: 'Montserrat', sans-serif;
+	height: 80vh;
+    width: 100vh;
+    background: rgb(12,12,164);
+    background: linear-gradient(90deg, rgba(12,12,164,1) 42%, rgba(0,212,255,1) 100%);
+}
+
+h3{
+    display: flex;
+	justify-content: left;
+	align-items: left;
+}
+
+
+#map { 
+    height: 800px;
+    width: 800px;
+    margin-left: 500px;
+    margin-top: 100px;
+}
+
+button {
+	border-radius: 20px;
+	border: 1px solid #0F72CE;
+	background-color: #0F72CE;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 10px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+    transform: scale(0.60);
+    justify-content: left;
+	align-items: left;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:600|Open+Sans:600&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+.sidebar{
+  position: fixed;
+  width: 240px;
+  left: 0px;
+  height: 100%;
+  background: black;;
+  transition: all .5s ease;
+}
+.sidebar header{
+  font-size: 18px;
+  color: rgb(12,12,164);
+  line-height: 90px;
+  text-align: center;
+  background: #000000;
+  user-select: none;
+  font-family: 'Montserrat', sans-serif;
+}
+.sidebar a{
+  display: block;
+  height: 65px;
+  width: 100%;
+  color: white;
+  line-height: 65px;
+  padding-left: 30px;
+  box-sizing: border-box;
+  border-bottom: 1px solid black;
+  border-top: 1px solid rgba(255,255,255,.1);
+  border-left: 1px solid transparent;
+  font-family: 'Open Sans', sans-serif;
+  transition: all .5s ease;
+  font-size: 15px;
+}
+a:hover{
+  border-left: 5px solid rgb(12,12,164);;
+  color: rgb(12,12,164);
+}
+.sidebar a i{
+  font-size: 15px;
+  margin-right: 16px;
+}
