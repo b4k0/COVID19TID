@@ -12,6 +12,7 @@ COVID19TID is a web application for traffic inflation data for COVID-19 dispersi
   * Font Awesome Icons
   * jQuery
   * Ajax
+  * Leaflet.Locate plugin
  
  ## Functionality
 
