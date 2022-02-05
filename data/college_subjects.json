@@ -1,0 +1,22 @@
+[  
+  {  
+    "name": "sravan kumar",  
+    "gender": "Male",  
+    "subject": "Software engineering"  
+  },  
+  {  
+    "name": "sudheer",  
+    "gender": "Male",  
+    "subject": "deep learning"    
+  },  
+  {  
+    "name": "radha",  
+    "gender": "Female",  
+    "subject": "Software engineering"  
+  },  
+  {  
+    "name": "vani",  
+    "gender": "Female",  
+    "subject": "Software engineering"  
+  }
+]
