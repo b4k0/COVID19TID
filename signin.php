@@ -11,6 +11,8 @@
 <div class="container" id="container">
 	<?php
 
+session_start();
+
 $conn = new mysqli("localhost", "root", "", "covid19");
 
 if($conn->connect_error){
@@ -39,6 +41,9 @@ if(isset($username) && isset($password)){
 		exit();
 	}else{
 		if($row > 0){
+			$_SESSION["username"] = $username;
+			$_SESSION["password"] = $password;
+			 if(isset($_SESSION["username"])){
 			if ($username=="admin" && $password=="admin"){
 				header("Location: adminDashboard.php");
 				exit();
@@ -46,6 +51,7 @@ if(isset($username) && isset($password)){
 				header("Location: userDashboard.php");
 				exit();
 			}
+		}
 		}
 		else{
 			header("Location: signin.php?error=False Credentials!");
