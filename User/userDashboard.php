@@ -17,6 +17,10 @@ session_start();
 
 </head>
 <body>
+
+   <div class="dash">
+    <div id="map"></div>
+    </div>
     <div class="sidebar">
       <p>COVID 19 TID</p>
       <header>
@@ -26,7 +30,7 @@ session_start();
       <br>
       <a href="userDashboard.php" class="active">
         <i class="fas fa-map"></i>
-        <span>Live Map</span>
+        <span>Live Location</span>
       </a>
       <a href="userDashboardPOIs.php">
         <i class="fas fa-search"></i>
@@ -58,8 +62,8 @@ session_start();
         <span>Logout</span>
       </a>
     </div>
-
-    <div id="map"></div>
+ 
+    
     
 </body>
 </html>

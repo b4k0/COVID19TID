@@ -17,6 +17,12 @@ session_start();
 
 </head>
 <body>
+<div class="dash">
+ 
+
+</div>
+
+</div>
     <div class="sidebar">
       <p>COVID 19 TID</p>
       <header>
@@ -58,34 +64,7 @@ session_start();
         <span>Logout</span>
       </a>
     </div>
-
-    <div id="map"></div>
+ 
     
 </body>
 </html>
-
-<!-- Leaflet.js -->
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
-<script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.js" charset="utf-8"></script>
-<script>
-    var map = L.map('map').setView([38.246639, 21.734573], 15.5);
-
-    // var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    //     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    // });
-    // osm.addTo(map);
-  
-
-   var googleStreets = L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{
-    maxZoom: 20,
-    subdomains:['mt0','mt1','mt2','mt3']
-});
-googleStreets.addTo(map);
-
-// L.marker([38.246639, 21.734573]).addTo(map);
-var lc = L.control.locate({
-       locateOptions: {
-               enableHighAccuracy: true
-}}).addTo(map);
-lc.start();
-</script>

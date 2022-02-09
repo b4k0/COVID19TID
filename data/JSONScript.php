@@ -45,7 +45,7 @@
 			$table_data = '';
 			
 			// json file name
-			$filename = "college_subjects.json";
+			$filename = "starting_pois.json";
 			
 			// Read the JSON file in PHP
 			$data = file_get_contents($filename);
