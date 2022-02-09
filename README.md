@@ -24,6 +24,9 @@ COVID19TID is a web application for traffic inflation data for COVID-19 dispersi
  * Check password strength in Signup Page and display suitable message.
    ![checkpass](https://user-images.githubusercontent.com/51766689/152643724-a68b033a-558e-4cff-9c4c-93ca90b91e20.PNG)
 
- * User Dashboard with Live Location
+ * User Dashboard with Live Location.
    ![userdash](https://user-images.githubusercontent.com/51766689/152643643-f64918f5-6ef4-43d0-b317-4a5d711383ca.PNG)
+  
+ * Search POIs and display them in leaflet map.
+  ![SearchPOIs](https://user-images.githubusercontent.com/51766689/153107984-95d5681a-2020-4378-baca-889556004382.PNG)
 
