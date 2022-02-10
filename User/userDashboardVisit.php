@@ -160,7 +160,7 @@ session_start();
         ?>
 
         <!-- Custom JS -->
-        <script src="myscripts.js" type="text/javascript" ></script>
+        <script src="myscripts_visit.js" type="text/javascript" ></script>
 
 
 

@@ -20,7 +20,7 @@ var googleStreets = L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={
 googleStreets.addTo(map);
 
 // L.marker([38.2362, 21.7305]).bindPopup("<b>Live Location").addTo(map);
-// L.circle([38.2362,21.7303],{radius:20, color: 'orange', fillColor: 'orange', fillOpacity: 0.4}).addTo(map);
+L.circle([38.2362,21.7303],{radius:20, color: 'orange', fillColor: 'orange', fillOpacity: 0.4}).addTo(map);
 
 //Read JSON data and populate Leaflet marker
 
@@ -43,7 +43,8 @@ for (var i=0; i<dataPOI.length; i++){
         function clickZoom(e) {
             map.setView(e.target.getLatLng(),17);
         }
-        L.marker([dataPOI[i].lat,dataPOI[i].lng],{icon: leafletImage}).bindPopup("<b>"+ dataPOI[i].name  + "</b><br />Address: "+ dataPOI[i].address + "</b><br />Rating: " + dataPOI[i].rating + "</b><br />Popularity: " + dataPOI[i].current_popularity+"%").on('click', clickZoom).addTo(map);
+        L.marker([dataPOI[i].lat,dataPOI[i].lng],{icon: leafletImage}).bindPopup("<b>"+ dataPOI[i].name  + "</b><br />Address: "+ dataPOI[i].address + "</b><br />Rating: " + dataPOI[i].rating + "</b><br />Popularity: " + dataPOI[i].current_popularity+"%"+
+        "</b><br /><button id='visit'>Add Visit</button>").on('click', clickZoom).addTo(map);
        
 
     }else if(dataPOI[i].current_popularity > 65 && dataPOI[i].current_popularity <= 100){
