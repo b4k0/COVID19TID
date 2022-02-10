@@ -35,6 +35,7 @@ error_reporting(E_ALL ^ E_WARNING);;
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
+<a href="userDashboard.php" class="btn btn-danger" id='back' role="button">Back to Dashboard Page</a>  
   <div class="container">
     <div class='box'>
       <h4 class="display-5 text-center">Personal Data</h4>
@@ -70,7 +71,7 @@ error_reporting(E_ALL ^ E_WARNING);;
       </table>
       <?php } ?>
   </div>
-      
+  
   
 
 
