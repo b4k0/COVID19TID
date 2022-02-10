@@ -1,70 +1,88 @@
 <?php
 session_start();
+error_reporting(E_ALL ^ E_WARNING);;
 ?>
+        <!-- Database Connection and Query -->
+        <?php
+    // Database Settings
+    include "dbinfo.php";
+
+     // Connecto to DB
+     $conn=new mysqli($dbhost, $dbuser, $dbpassword, $dbname);
+     if($conn->connect_errno ){
+         echo "<p class='errMsg'>Couldn't connect to DB server. " . $conn->connect_errno ."</p>\n";
+         // Exit PHP and end HTML
+         exit();
+     }
+
+
+        $username = $_SESSION["username"];
+        $sql = "SELECT * FROM users WHERE username = '$username'";
+        $result = mysqli_query($conn,$sql);
+       
+    
+    ?>
 
 <!-- HTML Code --> 
 <!DOCTYPE html>
 <html>
 <head>
 	<title>COVID19 TID User</title>
-    <link rel="stylesheet" type="text/css" href="styledashboard.css">
+    <link rel="stylesheet" type="text/css" href="pdata.css">
+    <!-- Responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css'>
-    <!-- Leaflet css -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
-
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-<div class="dash">
- 
+  <div class="container">
+    <div class='box'>
+      <h4 class="display-5 text-center">Personal Data</h4>
+      <br>
+      <?php if (mysqli_num_rows($result)) {
+      ?>
+      <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Usename</th>
+              <th scope="col">Password</th>
+              <th scope="col">Email</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+             $i=0;
+              while($rows = mysqli_fetch_assoc($result)){
+              $i++;
+            ?>
+            <tr>
+              <th scope="row"><?=$i?></th>
+              <td><?=$rows['username']?></td>
+              <td><?=$rows['password']?></td>
+              <td><?=$rows['email']?></td>
+              <td><a href='userDashboardUpdate.php?id=<?=$rows['username']?>'
+                  class="btn btn-warning">Update</button></td>
+            </tr>
+            <?php } ?>
+          </tbody>
+      </table>
+      <?php } ?>
+  </div>
+      
+  
 
-</div>
 
-</div>
-    <div class="sidebar">
-      <p>COVID 19 TID</p>
-      <header>
-        <i class="fas fa-user-alt"></i>
-        <?php echo $_SESSION["username"]?>
-      </header>
-      <br>
-      <a href="userDashboard.php">
-        <i class="fas fa-map"></i>
-        <span>Live Map</span>
-      </a>
-      <a href="userDashboardPOIs.php">
-        <i class="fas fa-search"></i>
-        <span>Search POIs</span>
-      </a>
-      <a href="userDashboardVisit.php">
-        <i class="fas fa-flag"></i>
-        <span>Insert Visit</span>
-      </a>
-      <a href="userDashboardCovid.php">
-         <i class="fas fa-virus"></i>
-        <span>Covid Inflection</span>
-      </a>
-      <a href="userDashboardPositiveCase.php">
-        <i class="fas fa-allergies"></i>
-        <span>Contact positive Case</span>
-      </a>
-      <a href="userDashboardPersonalData.php"  class="active">
-        <i class="fas fa-address-book"></i>
-        <span>Personal Data</span>
-      </a>
-      <br>
-      <br>
-      <br>
-      <br>
-     
-      <a href="logout.php">
-        <i class="fas fa-redo-alt"></i>
-        <span>Logout</span>
-      </a>
-    </div>
- 
     
 </body>
 </html>
+
+
+
+      </div>
+  </div> 
+</body>
+</html>
+
+

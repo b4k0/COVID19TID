@@ -5,12 +5,8 @@ html, body{
     margin: 0px;
     padding: 0px;
     height: 100% !important;
-
     background: rgb(12,12,164);
     background: linear-gradient(90deg, rgba(12,12,164,1) 42%, rgba(0,212,255,1) 100%);
-
-
-
 }
 
 .container{
