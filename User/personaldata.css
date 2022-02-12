@@ -19,9 +19,11 @@ html, body{
 }
 
 .box{
-    width: 750px;
-    margin-top: 2%;
+    width: 650px;
+    margin-top: 1%;
+    
 }
+
 
 .table{
     width: 300px;
@@ -36,6 +38,6 @@ th{
 }
 
 #back{
-    margin-left: 100px;
-    width:200px;
+    margin-left: 10px;
+    width: 200px;
 }

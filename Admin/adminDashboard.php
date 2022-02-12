@@ -155,7 +155,7 @@ session_start();
   }
     
     ?>
-    <div class='row';>
+    <div class='row'>
     <div style="width:40%; margin-left:100px; text-align:center">
       <canvas id="myChart"></canvas>
       <br>
