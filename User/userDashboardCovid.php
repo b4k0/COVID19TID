@@ -74,8 +74,10 @@ error_reporting(E_ALL ^ E_WARNING);;
         header("Location: userDashboardCovid.php?error=Date can not be blank!");
       }else if(!preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/",$date)){
         header("Location: userDashboardCovid.php?error=Date is not in the correct format!");
-      }else if(strtotime($date)> strtotime('-14 day')){
-        header("Location: userDashboardCovid.php?error=Date is not over 14 days!");
+      }else if(strtotime($date) < strtotime('-14 days')){
+        header("Location: userDashboardCovid.php?error=Date is not over 14 days before covid inflection!");
+      }else if(strtotime($date) < strtotime('+14 days')){
+        header("Location: userDashboardCovid.php?error=Date is not over 14 days after covid inflection!");
       }
       else{
         $sql = "INSERT INTO covid(user,diagnosis) VALUES('$username', '$date')";

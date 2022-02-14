@@ -66,7 +66,7 @@ session_start();
                         // echo $rowCount;
                         if($rowCount == 0)
                         {
-                            echo "<p class='countMsg'>No Record Found</p>\n </div> </td> </tr> </table> </body> </html>";
+                            echo "<p class='countMsg'>No Record(s) Found</p>\n </div> </td> </tr> </table> </body> </html>";
                             
                         }else{
                             echo "<br><p class='countMsg'>".$rowCount." Record(s) Found</p>\n";

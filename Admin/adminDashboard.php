@@ -97,9 +97,9 @@ session_start();
           </div>
           <div class="col-sm-3">
             <div class="card text-light bg-secondary mb-3" style="width: 15rem; height: 12rem;">
-            <div class="card-header">Total popularity</div>
+            <div class="card-header">Total Visits</div>
               <div class="card-body">
-                <h5 class="card-title text-center">popularity</h5>
+                <h5 class="card-title text-center">Visits</h5>
                 <?php
                    require 'dbinfo.php';
 
