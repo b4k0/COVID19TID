@@ -85,7 +85,7 @@ error_reporting(E_ALL ^ E_WARNING);;
       <form method="post" enctype="multipart/form-data">
 			JSON File <input type="file" name="jsonFile">
 			<br>
-			<input type="submit" value="Import" name="buttomImport">
+			<input type="submit" value="Import" name="buttomImport" class="btn btn-success">
 		</form>
 </div>
 </div> 
