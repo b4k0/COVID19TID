@@ -1,5 +1,6 @@
 <?php
 session_start();
+error_reporting(E_ALL ^ E_WARNING);;
 ?>
 
 <!-- HTML Code --> 
@@ -7,12 +8,15 @@ session_start();
 <html>
 <head>
 	<title>COVID19 TID Admin</title>
-    <link rel="stylesheet" type="text/css" href="styleAdmin.css">
+    <link rel="stylesheet" type="text/css" href="styleAdmindelete.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
+
+
     <div class="sidebar">
       <p>COVID 19 TID</p>
       <header>
@@ -20,7 +24,7 @@ session_start();
         <?php echo $_SESSION["username"]?>
       </header>
       <br>
-      <a href="adminDashboard.php" >
+      <a href="adminDashboard.php">
         <i class="fas fa-chart-pie"></i>
         <span>Statistics</span>
       </a>
@@ -42,18 +46,89 @@ session_start();
       <br>
       <br>
       <br>
-      <br>
-      <br>
-      <br>
-      <br>
-     
+
       <a href="logoutAdmin.php">
         <i class="fas fa-redo-alt"></i>
         <span>Logout</span>
       </a>
     </div>
 
-    <div id="map"></div>
+    <div class="container">
+            <!-- Database Connection and Query -->
+            <?php
+    // Database Settings
+    include "dbinfo.php";
+
+     // Connecto to DB
+     $conn=new mysqli($dbhost, $dbuser, $dbpassword, $dbname);
+     if($conn->connect_errno ){
+         echo "<p class='errMsg'>Couldn't connect to DB server. " . $conn->connect_errno ."</p>\n";
+         // Exit PHP and end HTML
+         exit();
+     }
+
+
+        $username = $_SESSION["username"];
+        $sql = "SELECT * FROM pois";
+        $result = mysqli_query($conn,$sql);
+       
+    
+    ?>
+
+      <div class="box">
+      <h4 class="display-4 text-center">POIs</h4>
+      <br>
+			<?php if (isset($_GET['success'])) { ?>
+		    <div class="alert alert-success text-center" role="alert">
+			  <?php echo $_GET['success']; ?>
+		    </div>
+		    <?php } ?>
+      <?php if (mysqli_num_rows($result)) {
+      ?>
+      <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Id</th>
+              <th scope="col">Name</th>
+              <th scope="col">Address</th>
+              <th scope="col">Latitude</th>
+              <th scope="col">Longtitude</th>
+              <th scope="col">Rating</th>
+              <th scope="col">Popularity</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+             $i=0;
+              while($rows = mysqli_fetch_assoc($result)){
+              $i++;
+            ?>
+            <tr>
+              <th scope="row"><?=$i?></th>
+              <td><?=$rows['id']?></td>
+              <td><?=$rows['name']?></td>
+              <td><?=$rows['address']?></td>
+              <td><?=$rows['lat']?></td>
+              <td><?=$rows['lng']?></td>
+              <td><?=$rows['rating']?></td>
+              <td><?=$rows['current_popularity']?></td>
+              <td><a href="delete.php?id=<?=$rows['id']?>"
+                  class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+            <?php } ?>
+          </tbody>
+      </table>
+      <?php } ?>
+  </div>
+</div>
+</div>    
+</div>
+
+
+
     
 </body>
 </html>

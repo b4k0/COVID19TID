@@ -1,5 +1,6 @@
 <?php
 session_start();
+error_reporting(E_ALL ^ E_WARNING);;
 ?>
 
 <!-- HTML Code --> 
@@ -155,11 +156,12 @@ session_start();
   }
     
     ?>
-    <div class='row'>
-    <div style="width:40%; margin-left:100px; text-align:center">
+    <!-- <div class='row'> -->
+    <div style="width:60%; margin-left:150px; text-align:center">
+    <h4>Visits per Category Pie</h4>
       <canvas id="myChart"></canvas>
       <br>
-      <h4>Visits per Category</h4>
+    
     </div>
 
     <script>
@@ -176,7 +178,8 @@ const data = {
       'rgb(75, 192, 192)',
       'rgb(153, 102, 255)',
       'rgb(201, 203, 207)',
-      'rgb(255, 159, 64)'
+      'rgb(255, 159, 64)',
+      'rgb(179, 11, 0)'
     ],
     hoverOffset: 4
   }]
@@ -211,10 +214,11 @@ const config = {
   }
     
     ?>
-    <div style="width:40%; text-align:center">
+    <br>
+    <div style="width:50%; margin-left:200px; text-align:center">
+    <h4>POIs within medium and high popularity Pie</h4>
       <canvas id="myChart2"></canvas>
       <br>
-      <h4>POIs within medium and high popularity</h4>
     </div>
 
     <script>
