@@ -1,6 +1,8 @@
 <?php
 session_start();
+error_reporting(E_ALL ^ E_WARNING);;
 ?>
+
 
 <!-- HTML Code --> 
 <!DOCTYPE html>
@@ -51,212 +53,41 @@ session_start();
         <span>Logout</span>
       </a>
     </div>
-
-    <div id="card">
-        <div class="row">
-          <div class="col-sm-3" >
-            <div class="card text-light bg-success mb-3" style="width: 15rem; height: 12rem;">
-            <div class="card-header">Total Users</div>
-              <div class="card-body">
-                <h5 class="card-title  text-center">Users</h5>
-                <?php
-                   require 'dbinfo.php';
-
-                  
-                    $conn = new mysqli($dbhost, $dbuser, $dbpassword, $dbname);
-                   $sql = "SELECT COUNT(*) AS total FROM users";
-                   $result = mysqli_query($conn,$sql);
-                   $data = mysqli_fetch_assoc($result);
-                   $real = $data['total'] - 1;
+    <?php
+	      $conn = new PDO("mysql:host=localhost;dbname=covid19", 'root', '');
+        if(isset($_POST['buttomImport'])) {
+          copy($_FILES['jsonFile']['tmp_name'], 'jsonFiles/'.$_FILES['jsonFile']['name']);
+          $data = file_get_contents('jsonFiles/'.$_FILES['jsonFile']['name']);
         
-                   echo '<h1 class="card-text text-center">  '.$real.'</h1>';
 
-                ?>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-3">
-            <div class="card text-light bg-warning mb-3" style="width: 15rem; height: 12rem;">
-            <div class="card-header">Total POIs</div>
-              <div class="card-body">
-                <h5 class="card-title text-center">POIs</h5>
-                <?php
-                   require 'dbinfo.php';
-
-                  
-                    $conn = new mysqli($dbhost, $dbuser, $dbpassword, $dbname);
-                    $sql = "SELECT COUNT(*) AS total FROM pois";
-                    $result = mysqli_query($conn,$sql);
-                    $data = mysqli_fetch_assoc($result);
-         
-                    echo '<h1 class="card-text text-center">  '.$data['total'].'</h1>';
- 
-                ?>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-3">
-            <div class="card text-light bg-secondary mb-3" style="width: 15rem; height: 12rem;">
-            <div class="card-header">Total Visits</div>
-              <div class="card-body">
-                <h5 class="card-title text-center">Visits</h5>
-                <?php
-                   require 'dbinfo.php';
-
-                  
-                    $conn = new mysqli($dbhost, $dbuser, $dbpassword, $dbname);
-                    $sql = "SELECT COUNT(*) AS total FROM visit";
-                    $result = mysqli_query($conn,$sql);
-                    $data = mysqli_fetch_assoc($result);
-         
-                    echo '<h1 class="card-text text-center">  '.$data['total'].'</h1>';
- 
-                ?>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-3">
-            <div class="card text-light bg-danger mb-3" style="width: 15rem; height: 12rem;">
-            <div class="card-header">Total Covid Inflections</div>
-              <div class="card-body">
-                <h5 class="card-title text-center">Covid Inflections</h5>
-                <?php
-                   require 'dbinfo.php';
-
-                  
-                    $conn = new mysqli($dbhost, $dbuser, $dbpassword, $dbname);
-                    $sql = "SELECT DISTINCT COUNT(*) AS total FROM covid";
-                    $result = mysqli_query($conn,$sql);
-                    $data = mysqli_fetch_assoc($result);
-         
-                    echo '<h1 class="card-text text-center">  '.$data['total'].'</h1>';
-                  ?>
-              </div>
-            </div>
-          </div>
-    </div>
-      <br>
-      <br>
-
-<?php
- require 'dbinfo.php';
-
-                  
-  $conn = new mysqli($dbhost, $dbuser, $dbpassword, $dbname);
-  $sql =  $conn->query("SELECT pois.types as types, COUNT(visit.poi) as visits
-  FROM pois
-  INNER JOIN visit ON pois.id = visit.poi
-  GROUP BY pois.types
-  ");
-
-  foreach($sql as $data){
-    $visit[] = $data['visits'];
-    $types[] = $data['types'];
-  }
-    
+          $products = json_decode($data);
+          foreach ($products as $product) {
+              $stmt = $conn->prepare('insert into pois(`id`, `name`, `address`, `types`, `lat`, `lng`, `rating`, `rating_n`, `current_popularity`, `time_spent`) values(:id, :name, :address, :types, :lat, :lng, :rating, :rating_n, :current_popularity, :time_spent)');
+              $stmt->bindValue('id', $product->id);
+              $stmt->bindValue('name', $product->name);
+              $stmt->bindValue('address', $product->address);
+              $stmt->bindValue('types', $product->types);
+              $stmt->bindValue('lat', $product->lat);
+              $stmt->bindValue('lng', $product->lng);
+              $stmt->bindValue('rating', $product->rating);
+              $stmt->bindValue('rating_n', $product->rating_n);
+              $stmt->bindValue('current_popularity', $product->current_popularity);
+              $stmt->bindValue('time_spent', $product->time_spent);
+              $stmt->execute();
+          }
+        }    
     ?>
-    <!-- <div class='row'> -->
-    <div style="width:60%; margin-left:150px; text-align:center">
-    <h4>Visits per Category Pie</h4>
-      <canvas id="myChart"></canvas>
+    
+    <div id="card"> 
+      <h4>Upload POIs</h4>
       <br>
-    
-    </div>
-
-    <script>
-
-const data = {
-  labels:<?php echo json_encode($types)?>,
-  datasets: [{
-    label: 'Visits per Category',
-    data: <?php echo json_encode($visit)?>,
-    backgroundColor: [
-      'rgb(255, 99, 132)',
-      'rgb(255, 205, 86)',
-      'rgb(54, 162, 235)',
-      'rgb(75, 192, 192)',
-      'rgb(153, 102, 255)',
-      'rgb(201, 203, 207)',
-      'rgb(255, 159, 64)',
-      'rgb(179, 11, 0)'
-    ],
-    hoverOffset: 4
-  }]
-};
-
-const config = {
-  type: 'pie',
-  data: data,
-};
-</script>
-
-<script>
-  const myChart = new Chart(
-    document.getElementById('myChart'),
-    config
-  );
-</script>
-<?php
- require 'dbinfo.php';
-
-                  
-  $conn = new mysqli($dbhost, $dbuser, $dbpassword, $dbname);
-  $sql2 =  $conn->query("SELECT pois.name as poi, pois.current_popularity as popularity
-  FROM pois
-  WHERE pois.current_popularity > 0
-  GROUP BY pois.current_popularity DESC
-  ");
-
-  foreach($sql2 as $data){
-    $poi[] = $data['poi'];
-    $popularity[] = $data['popularity'];
-  }
-    
-    ?>
-    <br>
-    <div style="width:50%; margin-left:200px; text-align:center">
-    <h4>POIs within medium and high popularity Pie</h4>
-      <canvas id="myChart2"></canvas>
       <br>
-    </div>
-
-    <script>
-
-const data2 = {
-  labels:<?php echo json_encode($poi)?>,
-  datasets: [{
-    label: '',
-    data: <?php echo json_encode($popularity)?>,
-    backgroundColor: [
-      'rgb(54, 162, 235)',
-      'rgb(179, 11, 0)',
-      'rgb(255, 205, 86)',
-      'rgb(75, 192, 192)',
-      'rgb(153, 102, 255)',
-      'rgb(201, 203, 207)',
-      'rgb(255, 159, 64)'
-    ],
-    hoverOffset: 4
-  }]
-};
-
-const config2 = {
-  type: 'pie',
-  data: data2,
-};
-</script>
-
-<script>
-  const myChart2 = new Chart(
-    document.getElementById('myChart2'),
-    config2
-  );
-</script>
-
+      <form method="post" enctype="multipart/form-data">
+			JSON File <input type="file" name="jsonFile">
+			<br>
+			<input type="submit" value="Import" name="buttomImport">
+		</form>
 </div>
-</div>
-
-
-    
+</div> 
 </body>
 </html>

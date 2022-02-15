@@ -8,6 +8,7 @@ if(isset($_GET['id'])){
     $result = mysqli_query($conn,$sql);
    if ($result) {
    	  header("Location:adminDashboardDelete.php?success=Record POI successfully deleted");
+         exit();
    }else {
       header("Location:adminDashboardDelete.php?error=unknown error occurred");
    }
