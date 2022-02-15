@@ -21,6 +21,10 @@ if($conn->connect_error){
 $email = $_POST["email"];
 $username = $_POST["username"];
 $password = $_POST["password"];
+$number = preg_match('@[0-9]@', $password);
+$uppercase = preg_match('@[A-Z]@', $password);
+$lowercase = preg_match('@[a-z]@', $password);
+$specialChars = preg_match('@[^\w]@', $password);
 
 
 
@@ -69,14 +73,13 @@ if(isset($username) && isset($password) && isset($email)){
 			exit();
 		}else {
 			if($conn->query($sql) === TRUE){
-				alert('Values have been inserted');
-			}else{
-				alert('Values did not insert');}
-			
+				header("Location: signup.php?success=User created successfully!");
+			exit();
 			}
 		}
 		
 	}
+}
 }
 
 
@@ -88,6 +91,9 @@ if(isset($username) && isset($password) && isset($email)){
 	<h1>Create Account</h1>
 	<?php if (isset($_GET['error'])){ ?>
 		<p class="error"><?php echo $_GET['error']; ?></p>
+	<?php } ?>
+	<?php if (isset($_GET['success'])){ ?>
+		<p class="success"><?php echo $_GET['success']; ?></p>
 	<?php } ?>
 	<br>
 	<br>
@@ -121,24 +127,3 @@ if(isset($username) && isset($password) && isset($email)){
  
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

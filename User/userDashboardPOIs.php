@@ -8,12 +8,12 @@ session_start();
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>PHP + LeafletJS</title>
+        <title>COVID19 TID User</title>
         <meta charset="utf-8"/>
         <!-- Responsive -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Custom CSS -->
-        <link rel="stylesheet" href="mymap.css" type="text/css"/>
+        <link rel="stylesheet"  type="text/css" href="mymap.css"/>
         <!-- Leaflet CSS -->
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
     </head>
@@ -160,7 +160,7 @@ session_start();
         ?>
 
         <!-- Custom JS -->
-        <script src="myscripts.js" type="text/javascript" ></script>
+        <script src="myscript.js" type="text/javascript" ></script>
 
 
 

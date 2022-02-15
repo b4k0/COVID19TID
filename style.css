@@ -234,3 +234,12 @@ input {
 	border-radius: 5px;
 	margin: 20px auto;
 }
+
+.success{
+	background: #f2dede;
+	color: #0ae942;
+	padding: 10px;
+	width: 95%;
+	border-radius: 5px;
+	margin: 20px auto;
+}

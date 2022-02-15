@@ -3,29 +3,36 @@
 <html>
 <head>
 	<title>COVID19 TID</title>
+	<!-- CSS file -->
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<!-- Font -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
 <div class="container" id="container">
+	<!-- PHP code for database and SQL Query -->
 	<?php
 
-session_start();
+session_start();  // session username for sign in and logout
 
-$conn = new mysqli("localhost", "root", "", "covid19");
+// connection with server and database (servername,username,password,database)
+$conn = new mysqli("localhost", "root", "", "covid19"); 
 
+// check connection
 if($conn->connect_error){
 	die("connection failed");
 }
+
 
 $username = $_POST["username"];
 $password = $_POST["password"];
 
 
-
+// sql query
 $sql = mysqli_query($conn, "SELECT * from users WHERE username = '$username' and password = '$password'");
 
+// execute query
 $row = mysqli_fetch_array($sql);
 
 if(isset($username) && isset($password)){

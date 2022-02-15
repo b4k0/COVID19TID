@@ -38,7 +38,7 @@ error_reporting(E_ALL ^ E_WARNING);;
         FROM visit 
         INNER JOIN pois ON visit.poi=pois.id
         INNER JOIN covid ON visit.visitTime >= covid.diagnosis 
-        WHERE visit.visitTime <= DATE_ADD(covid.diagnosis,INTERVAL 7 DAY) AND visit.user='$username'";
+        WHERE visit.visitTime <= DATE_ADD(covid.diagnosis,INTERVAL 7 DAY) AND visit.user='$username' AND visit.user != covid.user ";
         $result = mysqli_query($conn,$sql);
        
     
@@ -47,7 +47,7 @@ error_reporting(E_ALL ^ E_WARNING);;
     <div class='box'>
       <h4 class="display-5 text-center">Possible Contact with Positive Cases </h4>
       <br>
-      <?php if (mysqli_num_rows($result)) {
+      <?php if (mysqli_num_rows($result) > 0) {
       ?>
       <table class="table">
           <thead class="thead-dark">
@@ -73,7 +73,10 @@ error_reporting(E_ALL ^ E_WARNING);;
             <?php } ?>
           </tbody>
       </table>
-      <?php }?>
+      <?php } 
+      else{
+         echo '<script>alert("There are not any prossible contact with positive case")</script>';
+      }?>
   </div>
   <br>
   </div>
