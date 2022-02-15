@@ -74,12 +74,16 @@ error_reporting(E_ALL ^ E_WARNING);;
        
     
     ?>
-
+           
       <div class="box">
-      <h4 class="display-4 text-center">POIs</h4>
+      <div class="col-md-10 text-right">
+      <h4 class="display-4 text-right">POIs</h4>
       <br>
-			<?php if (isset($_GET['success'])) { ?>
-		    <div class="alert alert-success text-center" role="alert">
+      <a href="deleteall.php"class="btn btn-danger text-right">Delete All</a>
+      </div>
+      <br>
+      <?php if (isset($_GET['success'])) { ?>
+		    <div class="alert alert-warning text-center" role="alert">
 			  <?php echo $_GET['success']; ?>
 		    </div>
 		    <?php } ?>
