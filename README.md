@@ -59,7 +59,7 @@ COVID19TID is a web application for traffic inflation data for COVID-19 dispersi
   * Admin Dashboard with Statistics, boxes, tables, Pie and Doughnut charts.
    ![admin](https://user-images.githubusercontent.com/51766689/154168035-2bd016b0-f8f4-4ee5-ad29-554c3d009342.PNG)
    
-   ![admin2](https://user-images.githubusercontent.com/51766689/154168037-5db97458-c16e-4747-9348-ce4a496bc644.PNG)
+   ![admin2](https://user-images.githubusercontent.com/51766689/154169800-37859932-c160-489e-a15e-e011e51a6a9f.PNG)
 
  * Upload data into sql database from json file.
    ![adminupload](https://user-images.githubusercontent.com/51766689/154168042-25e6716e-7280-4045-bc77-64abea9ce448.PNG)
