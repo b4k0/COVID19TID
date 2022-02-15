@@ -186,7 +186,7 @@ const data = {
 };
 
 const config = {
-  type: 'pie',
+  type: 'doughnut',
   data: data,
 };
 </script>
