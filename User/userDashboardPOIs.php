@@ -13,7 +13,7 @@ session_start();
         <!-- Responsive -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Custom CSS -->
-        <link rel="stylesheet"  type="text/css" href="mymap.css"/>
+        <link rel="stylesheet"  type="text/css" href="map.css"/>
         <!-- Leaflet CSS -->
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
     </head>
@@ -29,14 +29,14 @@ session_start();
                 <div class="search">
                     <h2>Search POIs</h2>  
                     <p>Search Places of Interest (POIs)</p>
-                    <br>
-                    <form id="frmPOI" method="POST" action="">
-                        <input type="text" name="poi_keyword" class="button" placeholder="Enter a keyword..." value="">
-                        <button type="submit" id="btn_find">Search</button>
-                    </form>
                     <form id="frmPOI" action="userDashboard.php">
                     <button type="submit" id="btn_back">Back to User Page</button>
                     </form>
+                    <form id="frmPOI" method="POST" action="">
+                        <input type="text" name="poi_keyword" class="button" placeholder="Enter a keyword...like name, address or rating" value="">
+                        <button type="submit" id="btn_find">Search</button>
+                    </form>
+                    
                 </div>
                 <div class="resultTable">
                     <?php
