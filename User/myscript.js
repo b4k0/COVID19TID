@@ -8,7 +8,7 @@
 // });
 
 
-var map = L.map('mapid').setView([38.246639, 21.734573], 14);
+var map = L.map('mapid').setView([38.246639, 21.734573], 12);
 
 // var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 //     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

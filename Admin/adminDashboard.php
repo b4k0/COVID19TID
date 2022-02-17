@@ -204,7 +204,7 @@ const config = {
   $conn = new mysqli($dbhost, $dbuser, $dbpassword, $dbname);
   $sql2 =  $conn->query("SELECT pois.name as poi, pois.current_popularity as popularity
   FROM pois
-  WHERE pois.current_popularity > 0
+  WHERE pois.current_popularity > 66
   GROUP BY pois.current_popularity DESC
   ");
 
@@ -216,7 +216,7 @@ const config = {
     ?>
     <br>
     <div style="width:50%; margin-left:200px; text-align:center">
-    <h4>POIs within medium and high popularity Pie</h4>
+    <h4>POIs with high popularity Pie</h4>
       <canvas id="myChart2"></canvas>
       <br>
     </div>
