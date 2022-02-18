@@ -229,13 +229,13 @@ const data2 = {
     label: '',
     data: <?php echo json_encode($popularity)?>,
     backgroundColor: [
-      'rgb(54, 162, 235)',
       'rgb(179, 11, 0)',
-      'rgb(255, 205, 86)',
-      'rgb(75, 192, 192)',
-      'rgb(153, 102, 255)',
-      'rgb(201, 203, 207)',
-      'rgb(255, 159, 64)'
+      'rgb(215, 41, 41)',
+      'rgb(255, 7, 7)',
+      'rgb(224, 87, 87)',
+      'rgb(236, 149, 149)',
+      'rgb(240, 176, 176)',
+      'rgb(244, 197, 197)'
     ],
     hoverOffset: 4
   }]
