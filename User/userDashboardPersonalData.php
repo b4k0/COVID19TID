@@ -90,7 +90,7 @@ error_reporting(E_ALL ^ E_WARNING);;
 
 
         $username = $_SESSION["username"];
-        $sql = "SELECT * FROM visit WHERE user = '$username'";
+        $sql = "SELECT * FROM visit WHERE user = '$username' GROUP BY visitTime DESC";
         $sql2 = "SELECT * FROM covid WHERE user = '$username'";
         $result = mysqli_query($conn,$sql);
         $result2 = mysqli_query($conn,$sql2);

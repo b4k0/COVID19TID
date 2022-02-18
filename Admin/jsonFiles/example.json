@@ -1,3 +1,3 @@
 [
-    {"id": "ChIJVzAMZC82XhMRbhndkrdgncl", "name": "Ena Cash And Carry", "address": "Akti Dimeon 32, Patra", "types": "[supermarket, grocery_or_supermarket, food, point_of_interest, store, establishment]", "lat": "38.2344343", "lng": "21.7252929", "rating": 4.2, "rating_n": 69,"current_popularity": 9,"time_spent": "[20,20]"}
+    {"id": "ChIJVzAMZC82XhMRbhndkrdgncl", "name": "Ena Cash And Carry", "address": "Akti Dimeon 32, Patra", "types": "[supermarket, grocery_or_supermarket, food, point_of_interest, store, establishment]", "lat": "38.2344343", "lng": "21.7252929", "rating": 4.2, "rating_n": 69,"time_spent": "[20,20]","current_popularity": 9}
 ]

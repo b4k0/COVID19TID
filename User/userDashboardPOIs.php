@@ -55,7 +55,7 @@ session_start();
                         
                         
                         //SQL Syntax
-                        $query = "SELECT * FROM pois WHERE name LIKE '%".$clean_keyword."%' OR address LIKE '%".$clean_keyword."%' OR rating LIKE '%".$clean_keyword."%'";
+                        $query = "SELECT * FROM pois WHERE name LIKE '%".$clean_keyword."%' OR address LIKE '%".$clean_keyword."%' OR rating LIKE '%".$clean_keyword."%' GROUP BY name ASC";
 
                         //Execute SQL
                         $result = $conn->query($query);

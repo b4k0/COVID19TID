@@ -69,7 +69,7 @@ error_reporting(E_ALL ^ E_WARNING);;
 
 
         $username = $_SESSION["username"];
-        $sql = "SELECT * FROM pois";
+        $sql = "SELECT * FROM pois GROUP BY name ASC";
         $result = mysqli_query($conn,$sql);
        
     

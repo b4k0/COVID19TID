@@ -49,7 +49,7 @@ session_start();
         $clean_keyword = $conn->real_escape_string($keyword);
 
          //SQL Syntax
-        $sql = "SELECT * FROM pois WHERE name LIKE '%".$clean_keyword."%' OR address LIKE '%".$clean_keyword."%' OR rating LIKE '%".$clean_keyword."%'";
+        $sql = "SELECT * FROM pois WHERE name LIKE '%".$clean_keyword."%' OR address LIKE '%".$clean_keyword."%' OR rating LIKE '%".$clean_keyword."%' GROUP BY name ASC";
 
         //Execute SQL
         $result = mysqli_query($conn,$sql);
